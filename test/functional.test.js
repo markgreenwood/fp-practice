@@ -2,7 +2,7 @@ const R = require('ramda');
 const axios = require('axios');
 const { expect } = require('chai');
 
-const { problem1 } = require('../lib/practice');
+const { getUserAges } = require('../lib/practice');
 
 describe('fp-practice problems', () => {
   context('when I get users', () => {
@@ -19,14 +19,14 @@ describe('fp-practice problems', () => {
     });
   });
 
-  context('when I apply solution to problem1', () => {
+  context('when I apply solution to getUserAges', () => {
     let result;
 
     beforeEach(async () => {
       const inputData = await axios
         .get('http://randomuser.me/api/?results=5&seed=theSeed')
         .then(R.path(['data', 'results']));
-      result = problem1(inputData);
+      result = getUserAges(inputData);
     });
 
     it('will calculate the age of each user', () => {
