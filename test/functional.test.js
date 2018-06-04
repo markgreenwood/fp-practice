@@ -30,7 +30,6 @@ describe('fp-practice problems', () => {
     });
 
     it('will calculate the age of each user', () => {
-      expect(result.length).to.equal(5);
       expect(result).to.deep.equal([
         23,
         37,
@@ -63,12 +62,10 @@ describe('fp-practice problems', () => {
       const inputData = await axios
         .get('http://randomuser.me/api/?results=5&seed=theSeed')
         .then(R.path(['data', 'results']));
-      console.log(inputData);
       result = getUsersWithBadPasswords(inputData);
     });
 
     it('will return the names of users with bad passwords (<7 characters)', () => {
-      console.log(result);
       expect(result).to.deep.equal(['tinymouse202', 'crazyfrog635']);
     });
   });
