@@ -2,7 +2,7 @@ const R = require('ramda');
 const axios = require('axios');
 const { expect } = require('chai');
 
-const { getUserAges } = require('../lib/practice');
+const { getUserAges, getAverageUserAge, getUsersWithBadPasswords } = require('../lib/practice');
 
 describe('fp-practice problems', () => {
   context('when I get users', () => {
@@ -38,6 +38,38 @@ describe('fp-practice problems', () => {
         67,
         48
       ]);
+    });
+  });
+
+  context('when I apply getAverageUserAge', () => {
+    let result;
+
+    beforeEach(async () => {
+      const inputData = await axios
+        .get('http://randomuser.me/api/?results=5&seed=theSeed')
+        .then(R.path(['data', 'results']));
+      result = getAverageUserAge(inputData);
+    });
+
+    it('will calculate the average age of the users', () => {
+      expect(result).to.equal(47.4);
+    });
+  });
+
+  context('when I apply getUsersWithBadPasswords', () => {
+    let result;
+
+    beforeEach(async () => {
+      const inputData = await axios
+        .get('http://randomuser.me/api/?results=5&seed=theSeed')
+        .then(R.path(['data', 'results']));
+      console.log(inputData);
+      result = getUsersWithBadPasswords(inputData);
+    });
+
+    it('will return the names of users with bad passwords (<7 characters)', () => {
+      console.log(result);
+      expect(result).to.deep.equal(['tinymouse202', 'crazyfrog635']);
     });
   });
 });
