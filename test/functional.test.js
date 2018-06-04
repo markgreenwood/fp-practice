@@ -63,11 +63,13 @@ describe('fp-practice problems', () => {
       const inputData = await axios
         .get('http://randomuser.me/api/?results=5&seed=theSeed')
         .then(R.path(['data', 'results']));
+      console.log(inputData);
       result = getUsersWithBadPasswords(inputData);
     });
 
     it('will return the names of users with bad passwords (<7 characters)', () => {
-      expect(result).to.deep.equal(['crazyfrog635', 'tinymouse202']);
+      console.log(result);
+      expect(result).to.deep.equal(['tinymouse202', 'crazyfrog635']);
     });
   });
 });

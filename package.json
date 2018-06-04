@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "mocha -u bdd -R spec -t 2000 --recursive test/*"
+    "test": "mocha -u bdd -R spec -t 3000 --recursive test/*",
+    "watch": "mocha -u bdd -R spec -t 3000 --recursive --watch test/*"
   },
   "repository": {
     "type": "git",
