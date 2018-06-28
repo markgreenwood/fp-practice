@@ -30,12 +30,9 @@ describe('fp-practice problems', () => {
     });
 
     it('will calculate the age of each user', () => {
+      expect(result.length).to.equal(5);
       expect(result).to.deep.equal([
-        23,
-        37,
-        62,
-        67,
-        48
+        21, 40, 58, 71, 23
       ]);
     });
   });
@@ -50,8 +47,8 @@ describe('fp-practice problems', () => {
       result = getAverageUserAge(inputData);
     });
 
-    it.only('will calculate the average age of the users', () => {
-      expect(result).to.equal(47.4);
+    it('will calculate the average age of the users', () => {
+      expect(result).to.equal(42.6);
     });
   });
 
@@ -66,7 +63,7 @@ describe('fp-practice problems', () => {
     });
 
     it('will return the names of users with bad passwords (<7 characters)', () => {
-      expect(result).to.deep.equal(['tinymouse202', 'crazyfrog635']);
+      expect(result).to.deep.equal(['sadwolf742', 'whitefrog500']);
     });
   });
 });
