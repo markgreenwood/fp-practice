@@ -50,7 +50,7 @@ describe('fp-practice problems', () => {
       result = getAverageUserAge(inputData);
     });
 
-    it('will calculate the average age of the users', () => {
+    it.only('will calculate the average age of the users', () => {
       expect(result).to.equal(47.4);
     });
   });
