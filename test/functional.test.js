@@ -62,7 +62,7 @@ describe('fp-practice problems', () => {
       result = getUsersWithBadPasswords(inputData);
     });
 
-    it('will return the names of users with bad passwords (<7 characters)', () => {
+    it.only('will return the names of users with bad passwords (<7 characters)', () => {
       expect(result).to.deep.equal(['sadwolf742', 'whitefrog500']);
     });
   });
